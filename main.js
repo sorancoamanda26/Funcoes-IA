@@ -8,68 +8,94 @@ const textoResultado = document.querySelector(".texto-resultadp");
 
 const perguntas = [
     {
-        enunciado: "Pergunta?",
+        enunciado: "Imagine que você tirou 30 dias de férias e pode escolher seu desino podendo levar quem quiser. Porém está em dúvida para onde ir, nós podemos te ajudar. Qual o clima de sua preferência?",
         alternativas: [
             {
-                texto: " Texto/resposta",
-                afirmacao: " Afirmação ",
+                texto: " Lugares quentes ",
+                afirmacao: " Lembre-se de levar protetor solar. ",
             },
             {
-                texto: " Texto/resposta ",
-                afirmacao: " Afirmação ",
+                texto: " Lugares frios ",
+                afirmacao: " Lembre-se de levar agasalhos. ",
             }
         ]
     },
     {
-        enunciado: " Pergunta?",
+        enunciado: " Ótimo! Continuando com a sua preferência, o lugar que deseja ir, seria... ",
         alternativas: [
             {
-                texto: " Texto/resposta ",
-                afirmacao: " Afirmação ",
+                texto: " Lugares agitados e movimentados ",
+                afirmacao: " Sempre fique atento, mantenha seus pertencer próximos. ",
             },
             {
-                texto: " Texto/resposta ",
-                afirmacao: " Afirmação ",
+                texto: " Lugares calmos e aconchegantes ",
+                afirmacao: " Aproveite suas férias para tirar um descanso. ",
             }
         ]
     },
     {
-        enunciado: " Pergunta?",
+        enunciado: " Maravilhoso! Me conta... quem irá te acompanhar?",
         alternativas: [
             {
-                texto: " Texto/resposta ",
-                afirmacao: " Afirmação ",
+                texto: " Fámilia e/ou pet's ",
+                afirmacao: " Hotéis e resort's são a melhor opção para você. ",
             },
             {
-                texto: " Texto/resposta ",
-                afirmacao: " Afirmação ",
+                texto: " Amigos ",
+                afirmacao: " AirBnb e empresas de turismo podem te auxiliar. ",
             }
         ]
     },
     {
-        enunciado: " Pergunta?",
+        enunciado: " Bom! De acordo com seu financeiro, quanto pretende gastar em sua viagem?",
         alternativas: [
             {
-                texto: " Texto/resposta ",
-                afirmacao: " Afirmação ",
+                texto: " Até três salários mínimos ",
+                afirmacao: " Boa opção para você são viagens nacionais. ",
             },
             {
-                texto: " Texto/resposta ",
-                afirmacao: " Afirmação ",
+                texto: " Acima de três salários mínimos  ",
+                afirmacao: " Você irá adorar conhecer novos países. ",
             }
         ]
     },
     {
-        enunciado: " Pergunta?",
+        enunciado: " Para finalizar... Qual o meio de locomoção você pretende utilizar para chegar ao seu destino?",
         alternativas: [
             {
-                texto: " Texto/resposta ",
-                afirmacao: "Afirmação",
+                texto: " Carros ou motocicletas ",
+                afirmacao: " Seu destino pode ser próximo de você. ",
             },
             {
-                texto: " Texto/resposta ",
-                afirmacao: " Afirmação ",
+                texto: " Avião ou ônibus ",
+                afirmacao: " Sair de sua zona de conforto e conhecer novos horizontes. ",
             }
         ]
     },
 ];
+
+let atual = 0;
+let perguntaAtual;
+
+function mostraPergunta(){
+    perguntaAtual = perguntas[atual];
+    caixaPerguntas.textContent = perguntaAtual.enunciado;
+    mostraAlternativas();
+}
+
+function mostraAlternativas(){
+    for (const alternativa of perguntaAtual.alternativas){
+        const botaoAlternativas = document.createElement("button");
+        botaoAlternativas.textContent = alternativa.texto;
+        caixaAlternativas.appendChild(botaoAlternativas);
+    }
+}
+
+
+
+
+
+
+
+
+mostraPergunta();
